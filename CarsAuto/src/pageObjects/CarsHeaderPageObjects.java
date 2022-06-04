@@ -17,8 +17,10 @@ public class CarsHeaderPageObjects {
 	By newsAndVideos = By.cssSelector("a[data-linkname='header-news']");
 	By sellYourCar = By.cssSelector("a[data-linkname='header-sell-your-car']");
 	By serviceAndRepairs = By.cssSelector("a[data-linkname='header-service']");
-	By signIn = By.cssSelector(".header-signin");
-	By signUp = By.cssSelector(".header-signup");
+	By signIn = By.cssSelector("a.header-signin");
+	By signUp = By.cssSelector("a.header-signup");
+	
+	
 	
 	
 	public WebElement carsForSaleLink() {
