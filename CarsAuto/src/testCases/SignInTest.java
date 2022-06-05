@@ -21,7 +21,7 @@ public class SignInTest {
 	
 	
 
-		/**
+		
 		@Test
 		public void verifySignInPageComponents() throws InterruptedException {
 			
@@ -156,7 +156,78 @@ public class SignInTest {
 		driver.close();
 		
 	}
-	*/
+	
+	
+	@Test
+	public void verifyFailedLoginWithNoUsernameAndNoPassword() throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\haskel\\OneDrive\\Desktop\\PTA class\\Selenium\\CarsProject\\CarsAuto\\chromedriver\\chromedriver.exe");
+					WebDriver driver = new ChromeDriver();
+					CarsHeaderPageObjects carsHeaderObjects = new CarsHeaderPageObjects(driver);
+					SignInPageObjects signInPageObjects = new SignInPageObjects(driver);
+					
+					
+		carsHeaderObjects.navigateUrl("https://www.cars.com/");
+		driver.manage().window().maximize();
+		carsHeaderObjects.signInLink().click();
+		Thread.sleep(2000);
+		signInPageObjects.signInButton().click();
+		Thread.sleep(3000);
+		assertTrue(signInPageObjects.wrongUserNotification().getText().contains("Try again soon"));
+		driver.close();
+		
+	}
+	
+	@Test
+	public void verifyForgottenPasswordCasePage() throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\haskel\\OneDrive\\Desktop\\PTA class\\Selenium\\CarsProject\\CarsAuto\\chromedriver\\chromedriver.exe");
+					WebDriver driver = new ChromeDriver();
+					CarsHeaderPageObjects carsHeaderObjects = new CarsHeaderPageObjects(driver);
+					SignInPageObjects signInPageObjects = new SignInPageObjects(driver);
+					
+					
+		carsHeaderObjects.navigateUrl("https://www.cars.com/");
+		driver.manage().window().maximize();
+		carsHeaderObjects.signInLink().click();
+		Thread.sleep(3000);
+		signInPageObjects.forgotPasswordLink().click();
+		Thread.sleep(3000);
+		Assert.assertTrue(signInPageObjects.passwordRecoveryHeading().getText().contains("Forgot password"));
+		Assert.assertEquals(signInPageObjects.passwordRecoveryEmailBox().getAttribute("maxlength"),"255");
+		assertTrue(signInPageObjects.passwordRecoverySubmitButton().getText().equalsIgnoreCase("Submit"));
+		
+		
+		driver.close();
+		
+	}
+	
+	
+	@Test
+	public void verifyForgottenPasswordCasePageSentEmailConfirmation() throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\haskel\\OneDrive\\Desktop\\PTA class\\Selenium\\CarsProject\\CarsAuto\\chromedriver\\chromedriver.exe");
+					WebDriver driver = new ChromeDriver();
+					CarsHeaderPageObjects carsHeaderObjects = new CarsHeaderPageObjects(driver);
+					SignInPageObjects signInPageObjects = new SignInPageObjects(driver);
+					
+					
+		carsHeaderObjects.navigateUrl("https://www.cars.com/");
+		driver.manage().window().maximize();
+		carsHeaderObjects.signInLink().click();
+		Thread.sleep(3000);
+		signInPageObjects.forgotPasswordLink().click();
+		Thread.sleep(3000);
+		signInPageObjects.passwordRecoveryEmailBox().sendKeys(invalidEmail);
+		signInPageObjects.passwordRecoverySubmitButton().click();
+		assertTrue(signInPageObjects.passwordRecoverySentNotification().getText().contains("We sent you an email"));
+		driver.close();
+		
+	}
+	
 		
 		
 
