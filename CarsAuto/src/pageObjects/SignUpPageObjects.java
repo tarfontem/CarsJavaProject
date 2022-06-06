@@ -1,5 +1,7 @@
 package pageObjects;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,11 +17,12 @@ import org.openqa.selenium.WebElement;
 		
 		By firstName = By.cssSelector("#user_first_name");
 		By lastName = By.cssSelector("#user_last_name");
-		By email = By.cssSelector("#user_email2");
+		By email = By.cssSelector("div.email > div >input");
 		By userPassword = By.cssSelector("#user_password");
 		By userPasswordConfirm = By.cssSelector("#user_confirm_password");
 		By signUp = By.cssSelector("button.sds-button");
 		By signUpHead = By.cssSelector("sds-page-section__title");
+		By errorFields = By.cssSelector(".sds-input-container.error");
 		
 		
 		
@@ -51,6 +54,17 @@ import org.openqa.selenium.WebElement;
 		public WebElement signUpHeading() {
 			return driver.findElement(signUpHead);
 		}
+		
+		public WebElement errorNotifications() {
+			return driver.findElement(errorFields);
+		}
+		
+		public List<WebElement> errorMultipleNotifications() {
+			return driver.findElements(errorFields);
+		}
+		
+		
+		
 		
 		
 		
