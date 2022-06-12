@@ -13,11 +13,11 @@ import pageObjects.CarsHeaderPageObjects;
 import pageObjects.SignInPageObjects;
 
 public class SignInTest {
-	static String validEmail = "tardzfont@yahoo.com";
-	static String validPassword = "fti221987";
-	static String invalidEmail = "tardzfont1@yahoo.com";
-	static String invalidPassword = "fti22198700";
-	static String invalidPassword1 = "fti2219";
+	public static String validEmail = "tardzfont@yahoo.com";
+	public static String validPassword = "fti221987";
+	public static String invalidEmail = "tardzfont1@yahoo.com";
+	public static String invalidPassword = "fti22198700";
+	public static String invalidPassword1 = "fti2219";
 	
 	
 
