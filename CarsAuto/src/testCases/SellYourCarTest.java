@@ -32,7 +32,7 @@ public class SellYourCarTest {
 	static String validVin = "3GCEC14X66G218202";
 	
 	
-	/**
+	
 	
 	@Test	
 public void verifySellYourCarPageOptionsByPlateNumber() throws InterruptedException {
@@ -160,7 +160,7 @@ public void verifySellYourCarPageOptionsByPlateNumber() throws InterruptedExcept
 	
 	}
 	
-	*/
+	
 	
 	@Test	
 	public void verifySaleByVinFunctionalityWithValidVin() throws InterruptedException {
